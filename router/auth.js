@@ -19,10 +19,10 @@ router.post("/register", async (req, res) => {
 
   try {
     //then check this is already register user or not
-    const userExist =  await User.findOne({ email: email });
-    
+    const userExist = await User.findOne({ email: email });
+
     if (userExist) {
-        return res.status(422).json({ message: "Email already exists" });
+      return res.status(422).json({ message: "Email already exists" });
     }
 
     // if not then  take req.body data n save
@@ -31,9 +31,39 @@ router.post("/register", async (req, res) => {
     const userRegister = user.save();
 
     if (userRegister) {
-        res.status(201).json({ message: "User register successfully" });
+      res.status(201).json({ message: "User register successfully" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Please fill all fields" });
     }
 
+    const emailExist = await User.findOne({ email: email });
+    const passExist = await User.findOne({ password: password });
+
+    console.log(emailExist)
+
+    if (!emailExist) {
+      return res
+        .status(401)
+        .json({ error: "no account associated with this Email" });
+    }
+
+    if (!passExist) {
+      return res
+        .status(401)
+        .json({ error: "Please Provide Correct Password" });
+    }
+
+    res.json({ message: "log in" });
   } catch (err) {
     console.log(err);
   }
