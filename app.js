@@ -1,26 +1,15 @@
 const express = require('express');
-//db connection
-require('./Db/Connection')
-//User Schama 
-// const User  = require('./Model/userSchema');
 const app = express();
 const port = process.env.PORT || 3000 ;
 
-//middleware 
+//db connection
+require('./Db/Connection')
 
-const middleware = (req , res , next)=>{
-    console.log("this is middle ware");
-    next();
-}
+//middleware for app to use json
+app.use(express.json())
 
-
-app.get('/' ,(req , res)=>{
-    res.send("Hello World") 
-})
-
-app.get('/about' , middleware ,  (req , res)=>{
-    res.send("This is about Page")
-})
+//router files  
+app.use(require('./router/auth'));
 
 app.listen(port ,()=>{
     console.log(`Listening on port ${port}`);

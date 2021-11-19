@@ -27,6 +27,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-
+// model function takes 2 arguments Collection name that you want to create and UserSchama whatever you created
 const User =  mongoose.model('USER' , userSchema);
 module.exports = User ;
