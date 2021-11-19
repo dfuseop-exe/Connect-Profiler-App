@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   res.send("Hello World from router");
 });
 
-router.post("/register", (req, res) => {
+router.post("/register", async (req, res) => {
   const { name, email, phone, work, password, cpassword } = req.body;
 
   //checks is any field is not empty in req.body
@@ -17,21 +17,26 @@ router.post("/register", (req, res) => {
     return res.status(422).json({ error: "Please fill all fields" });
   }
 
-  //then check this is already register user or not
-  User.findOne({ email: email }).then((userExist) => {
+  try {
+    //then check this is already register user or not
+    const userExist =  await User.findOne({ email: email });
+    
     if (userExist) {
-      return res.status(422).json({ message: "Email already exists" });
+        return res.status(422).json({ message: "Email already exists" });
     }
 
     // if not then  take req.body data n save
     const user = new User({ name, email, phone, work, password, cpassword });
-    user
-      .save().then(() => {
-        return res.status(201).json({ message: "User register successfully" });
-      }).catch((err) => {
-        return res.status(500).json({ error: "failed to register" });
-      });
-  }).catch(err => {console.log(err)})
+
+    const userRegister = user.save();
+
+    if (userRegister) {
+        res.status(201).json({ message: "User register successfully" });
+    }
+
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;
