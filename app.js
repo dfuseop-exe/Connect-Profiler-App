@@ -1,7 +1,18 @@
+const dotenv = require('dotenv');
 const express = require('express');
+const mongoose = require('mongoose')
 const app = express();
 const port = process.env.PORT || 3000 ;
 
+// secure Db link config functions takes key value pair path : pathaddress
+dotenv.config({path : './config.env'});
+const DB = process.env.DATABASE_URL;
+
+mongoose.connect(DB).then(()=>{
+    console.log("Connection is successful")  
+}).catch((err)=>{
+    console.log(err)
+});
 
 //middleware 
 
