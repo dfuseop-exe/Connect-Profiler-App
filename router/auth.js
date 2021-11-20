@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 //link database to this file to work with
 require("../Db/Connection");
@@ -28,6 +29,10 @@ router.post("/register", async (req, res) => {
     // if not then  take req.body data n save
     const user = new User({ name, email, phone, work, password, cpassword });
 
+
+    const salt = await bcrypt.genSalt(10);
+    const secPass = await bcrypt.hash(password, salt);
+
     const userRegister = user.save();
 
     if (userRegister) {
@@ -46,24 +51,25 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ error: "Please fill all fields" });
     }
 
+
+    //ckeck email exist or not in db
     const emailExist = await User.findOne({ email: email });
-    const passExist = await User.findOne({ password: password });
+   
+    if (emailExist) {
+  
+        const passwordCompare = await bcrypt.compare(password,emailExist.password);
 
-    console.log(emailExist)
+        if (!passwordCompare) {
+          return res.status(400).json({ error: "Invalid credentials" });
+        }
 
-    if (!emailExist) {
-      return res
-        .status(401)
-        .json({ error: "no account associated with this Email" });
+        else{
+          return res.status(200).json({ message: "log in" });
+        }
     }
-
-    if (!passExist) {
-      return res
-        .status(401)
-        .json({ error: "Please Provide Correct Password" });
+    else{
+      return res.status(400).json({ error: "no account associated with this Email" });
     }
-
-    res.json({ message: "log in" });
   } catch (err) {
     console.log(err);
   }
