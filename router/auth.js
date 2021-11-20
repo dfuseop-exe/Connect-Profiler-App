@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { body, validationResult } = require('express-validator');
 
 //link database to this file to work with
 require("../Db/Connection");
@@ -11,7 +12,20 @@ router.get("/", (req, res) => {
   res.send("Hello World from router");
 });
 
-router.post("/register", async (req, res) => {
+router.post("/register",  [
+  body('name', 'Enter a valid name').isLength({ min: 3 }),
+  body('email', 'Enter a valid email').isEmail(),
+  body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
+
+]  , async (req, res) => {
+
+
+  // If there are errors, return Bad request and the errors
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array()});
+  }
+
   const { name, email, phone, work, password, cpassword } = req.body;
 
   //checks is any field is not empty in req.body
@@ -42,7 +56,9 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login",[
+  body('email', 'Enter a valid email').isEmail()
+] , async (req, res) => {
   try {
     const { email, password } = req.body;
 
