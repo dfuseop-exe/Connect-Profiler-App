@@ -41,15 +41,15 @@ const userSchema = new mongoose.Schema({
 //here we hashing the password
 
 userSchema.pre('save' , async function (next){
-  console.log(this.password);
+
   const salt = await bcrypt.genSalt(10);
   const secPass = await bcrypt.hash(this.password, salt);
-  console.log("pre function")
+
   if (this.isModified('password')){
       this.password = secPass ;
       this.cpassword = secPass;
   }
-  console.log(this.password)
+
   next();
 })
 
