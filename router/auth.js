@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require('express-validator');
+const Authenticate = require("../middleware/Authenticate")
+
 
 //link database to this file to work with
 require("../Db/Connection");
@@ -95,5 +97,18 @@ router.post("/login",[
     console.log(err);
   }
 });
+
+
+//about
+
+router.get('/about' ,Authenticate , (req , res)=>{
+  res.send(req.rootUser)
+})
+
+
+//get user data for contact us and homepage
+router.get('/getdata' ,Authenticate , (req , res)=>{
+  res.send(req.rootUser)
+}) 
 
 module.exports = router;

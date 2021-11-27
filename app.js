@@ -1,5 +1,8 @@
 const express = require('express');
+var cookieParser = require('cookie-parser')
+
 const app = express();
+app.use(cookieParser());
 const port = 3000 ;
 const mongoose = require("mongoose");
 
