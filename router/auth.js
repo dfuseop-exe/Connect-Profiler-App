@@ -111,4 +111,36 @@ router.get('/getdata' ,Authenticate , (req , res)=>{
   res.send(req.rootUser)
 }) 
 
+//send Contact form messages 
+router.post('/contact' ,Authenticate , async (req , res)=>{
+  
+  try {
+    const {name , email , phone , message } = req.body;
+    if(!name || !email || !phone || !message){
+      return res.json({error : "Please Fill The Contact Form"});
+    }
+
+    const user = await User.findOne({ _id : req.userID})
+ 
+    //add message
+    if(user){
+      const usermessage = await user.addMessge(name , email , phone , message);
+      await user.save();
+      res.status(201).json({message : "user Contact Successfully"})
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+
+}) 
+
+//logout
+
+router.get('/logout'  , (req , res)=>{
+  console.log("Logout");
+  res.clearCookie('jwtoken' , {path : '/'});
+  res.status(200).send("User Logout");
+})
+
 module.exports = router;
