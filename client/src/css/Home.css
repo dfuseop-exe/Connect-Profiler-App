@@ -1,0 +1,16 @@
+.home-div{
+    width: 800px;
+    height: 200px;
+    margin: 0px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+
+.container-contact{
+height: 700px;
+display: flex;
+align-items: center;
+}

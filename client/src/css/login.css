@@ -1,0 +1,87 @@
+
+.login-center-container{
+    height : 400px;
+     width: 800px;
+     margin: 100px auto 0px auto;
+     padding: 0px
+   }
+   
+   .login-container-card{
+     display: flex;
+     height : 400px;
+     width: 800px;
+     flex-direction: row;
+     background-color: #ffffff;
+     justify-content: space-around;
+     margin-bottom: 0px;
+    
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.425);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.425);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.425);
+     
+   }
+
+
+ .item-left-login img{
+  width:300px;
+  height: 400px;
+  margin: auto 0px auto 0px;
+ }
+
+
+.item-right-login{
+width: 500px;
+
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+}
+
+.login-heading{ 
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-form{
+  height : 300px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.login-form input{
+  text-align: center;
+  height: 30px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 500;
+  color: #010829;;
+  width: 380px;
+  border-bottom: 3px solid #010829;;
+  outline: none;
+  font-family: Comfortaa;
+}
+
+
+
+.inputWithIcon-login i{
+  position: absolute;
+  left: 0;
+  top: 0;
+ 
+  padding: 14px 25px 0px 25px ;
+  color: #010829;
+}
+
+.btn-login{
+  width: 120px;
+  
+ 
+}
