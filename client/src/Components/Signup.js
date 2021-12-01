@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import signup from '../images/signup.svg'
 import '../css/Signup.css'
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 export default function Signup() {
 

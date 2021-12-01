@@ -13,7 +13,7 @@
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.425);
     -o-box-shadow: 0 0 10px rgba(0,0,0,0.425);
     width: 30%;
-    
+    border-radius: 15px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -27,6 +27,7 @@
     height : auto;
     text-align: center;
     margin: auto 0px;
+    
 }
 
 
@@ -42,7 +43,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    
+    border-radius: 15px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.425);

@@ -28,7 +28,7 @@
     background-color: #ffffff;
     justify-content: space-evenly;
     margin-bottom: 0px;
-    
+    border-radius: 15px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.425);
@@ -131,4 +131,15 @@
     margin-top: 20px;
     width: 350px;
     text-align: center;
+  }
+
+  .btn-outline-info{
+    border: none;
+    color: rgba(0, 0, 0, 0.863);
+    
+  }
+
+  .btn-outline-info:hover{
+    background-color: white;
+    color: #0d6efd;
   }

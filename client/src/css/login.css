@@ -8,13 +8,13 @@
    
    .login-container-card{
      display: flex;
-     height : 400px;
-     width: 800px;
+     height: 409px;
+    width: 811px;
      flex-direction: row;
-     background-color: #ffffff;
+    
      justify-content: space-around;
      margin-bottom: 0px;
-    
+    border-radius: 15px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.425);

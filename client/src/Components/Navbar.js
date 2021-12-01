@@ -1,6 +1,6 @@
 import React , {useContext} from "react";
 import { Link } from "react-router-dom";
-import logo from '../images/logo.png'
+
 import { UserContext } from '../App';
 import '../css/Navbar.css'
 
@@ -14,22 +14,22 @@ export default function Navbar() {
         <>
           <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
-                Home
+                <p>Home</p>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">
-                About
+                <p>About</p>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contact">
-                Contact
+                <p>Contact</p>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/logout">
-              Logout
+              <p>Logout</p>
               </Link>
             </li>
         </>
@@ -39,27 +39,27 @@ export default function Navbar() {
         <>
           <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
-                Home
+                <p>Home</p>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">
-                About
+                <p>About</p>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contact">
-                Contact
+                <p>Contact</p>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/login">
-                Login
+                <p>Login</p>
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/signup">
-              Registration
+              <p>Registration</p>
               </Link>
             </li>
         </>

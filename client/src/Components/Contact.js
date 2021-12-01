@@ -82,7 +82,7 @@ useEffect(() => {
           <i className="fa-solid fa-phone"></i>
           </div>
           <div className="info-text">
-            <h5>Phone</h5>
+            <h5 style={{ color : "#0d6efd"}}>Phone</h5>
             <h5>8530164970</h5>
           </div>
         </div>
@@ -92,7 +92,7 @@ useEffect(() => {
           <i className="fa-solid fa-envelope"></i>
           </div>
           <div className="info-text">
-            <h5>Email</h5>
+            <h5 style={{ color : "#0d6efd"}}>Email</h5>
             <h5>sushant.165.shinde@gmail.com</h5>
           </div>
         </div>
@@ -102,7 +102,7 @@ useEffect(() => {
           <i className="fa-solid fa-location-pin"></i>
           </div>
           <div className="info-text">
-            <h5>Address</h5>
+            <h5 style={{color : "#0d6efd"}}>Address</h5>
             <h5>Dhule MH , India</h5>
           </div>
         </div>
@@ -113,7 +113,7 @@ useEffect(() => {
 
     <form method="POST" className='getintouch'>
         <div>
-            <h2>Get In Touch</h2>
+            <h2 style={{textAlign : 'center' , color : "#0d6efd"}}>Get In Touch</h2>
         </div>
         <div className='contact-inputs'>
             <input type="text" class="form-control" placeholder='Enter Name' name='name' value={userData.name} onChange={handleInput}/>

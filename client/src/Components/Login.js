@@ -72,7 +72,7 @@ export default function Login() {
                         value={email}
                         onChange = {(e)=>setEmail(e.target.value)}
                         />
-                        <i className="fa-solid fa-envelope fa-lg" aria-hidden='true'></i>
+                        
                     </div>
 
 
@@ -84,7 +84,7 @@ export default function Login() {
                         value={password}
                         onChange = {(e)=>setPassword(e.target.value)}
                         />
-                        <i className="fa-solid fa-lock fa-lg" aria-hidden='true'></i>
+                        
                     </div>
 
                     <button type="button" onClick={loginUser} className="btn btn-outline-primary btn-login">log in</button>
