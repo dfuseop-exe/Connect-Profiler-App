@@ -19,7 +19,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">
-                <p>About</p>
+                <p>Profile</p>
               </Link>
             </li>
             <li className="nav-item">
@@ -44,7 +44,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">
-                <p>About</p>
+                <p>Profile</p>
               </Link>
             </li>
             <li className="nav-item">
@@ -70,7 +70,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-fixed-top navbar-expand-lg navbar-light ">
       <div className="container-fluid">
-      <a class="navbar-brand" href="#"><h3 style={{fontFamily : "Nunito" , color  : "#0d6efd"}}  >Connect</h3></a>
+      <Link class="navbar-brand" to="/"><h3 style={{fontFamily : "Nunito" , color  : "#0d6efd"}}  >Connect</h3></Link>
         <button
           className="navbar-toggler"
           type="button"

@@ -117,7 +117,7 @@ useEffect(() => {
         </div>
         <div className='contact-inputs'>
             <input type="text" class="form-control" placeholder='Enter Name' name='name' value={userData.name} onChange={handleInput}/>
-            <input type="email" class="form-control" placeholder='Enter Email' value={userData.email} onChange={handleInput} />
+            <input type="email" class="form-control" placeholder='Enter Email' name='email' value={userData.email} onChange={handleInput} />
             <input type="text" class="form-control" placeholder='Enter Number' name='phone' value={userData.phone} onChange={handleInput}/>
         </div>
 

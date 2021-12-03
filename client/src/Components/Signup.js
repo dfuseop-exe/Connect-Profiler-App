@@ -124,7 +124,7 @@ export default function Signup() {
             <div className='inputWithIcon-signup'>
               <input
                 placeholder='Password'
-    
+                type='password'
                 className='todo-input'
                 value = {user.password}
                 onChange={handleInputs}
@@ -136,7 +136,7 @@ export default function Signup() {
             <div className='inputWithIcon-signup'>
               <input
                 placeholder='Confirm Password'
-          
+                type='password'
                 className='todo-input'
                 value = {user.cpassword}
                 onChange={handleInputs}

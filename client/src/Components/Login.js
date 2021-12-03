@@ -78,6 +78,7 @@ export default function Login() {
 
                     <div className='inputWithIcon-login'>
                         <input
+                        type='password'
                         placeholder='Password'
                         name='text'
                         className='todo-input'
