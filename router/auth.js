@@ -10,9 +10,9 @@ const Authenticate = require("../middleware/Authenticate")
 require("../Db/Connection");
 const User = require("../Model/userSchema");
 
-router.get("/", (req, res) => {
-  res.send("Hello World from router");
-});
+// router.get("/", (req, res) => {
+//   res.send("Hello World from router");
+// });
 
 router.post("/register",  [
   body('name', 'Enter a valid name').isLength({ min: 3 }),
