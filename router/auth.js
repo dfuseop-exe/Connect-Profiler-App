@@ -17,6 +17,7 @@ const User = require("../Model/userSchema");
 router.post("/register",  [
   body('name', 'Enter a valid name').isLength({ min: 3 }),
   body('email', 'Enter a valid email').isEmail(),
+  body('phone', 'Enter a valid number').isMobilePhone(),
   body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
 
 ]  , async (req, res) => {
