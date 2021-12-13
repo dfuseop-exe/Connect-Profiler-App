@@ -1,5 +1,6 @@
 import React, { useEffect , useState} from "react";
 import "../css/Contact.css";
+import contact from "../images/contact.svg"
 
 export default function Contact() {
 
@@ -74,67 +75,50 @@ useEffect(() => {
    setUserData({...userData , message : ""})
  }
 }
+
   return (
-    <div className="container">
-      <div className="contact-info">
-        <div className="info">
-          <div className="info-icon">
-          <i className="fa-solid fa-phone"></i>
+    <div className="container body1">
+        <div class="contact-form">
+       <div class="first-container">
+        <div class="info-container">
+          <img style={{width : "100%" , height : "200px"}} src={contact} alt="contact Image" />
+          <div> 
+            <h3>Address</h3>
+            <p>Dhule , Maharashtra India</p>
           </div>
-          <div className="info-text">
-            <h5 style={{ color : "#0d6efd"}}>Phone</h5>
-            <h5>8530164970</h5>
+          <div> 
+            <h3>Phone Number</h3>
+            <p>+91 8530164970</p>
           </div>
-        </div>
-
-        <div className="info">
-          <div className="info-icon">
-          <i className="fa-solid fa-envelope"></i>
-          </div>
-          <div className="info-text">
-            <h5 style={{ color : "#0d6efd"}}>Email</h5>
-            <h5>sushant.165.shinde@gmail.com</h5>
+          <div> 
+            <h3>Email Support</h3>
+            <p>sushant.165.shinde.com</p>
           </div>
         </div>
-
-        <div className="info">
-          <div className="info-icon">
-          <i className="fa-solid fa-location-pin"></i>
-          </div>
-          <div className="info-text">
-            <h5 style={{color : "#0d6efd"}}>Address</h5>
-            <h5>Dhule MH , India</h5>
-          </div>
-        </div>
-      </div>
-
-
-{/* --------------------------------------------------------- */}
-
-    <form method="POST" className='getintouch'>
-        <div>
-            <h2 style={{textAlign : 'center' , color : "#0d6efd"}}>Get In Touch</h2>
-        </div>
-        <div className='contact-inputs'>
-            <input type="text" class="form-control" placeholder='Enter Name' name='name' value={userData.name} onChange={handleInput}/>
-            <input type="email" class="form-control" placeholder='Enter Email' name='email' value={userData.email} onChange={handleInput} />
-            <input type="text" class="form-control" placeholder='Enter Number' name='phone' value={userData.phone} onChange={handleInput}/>
-        </div>
-
-        <textarea class="form-control contact-text" rows="3"  placeholder='Input Your Message' name='message'  value={userData.message} onChange={handleInput} ></textarea>
-        
-
-        <div>
-        <button type="button" className="btn btn-outline-primary " onClick={contactForm}>Send Message</button>
-        </div>
-    </form>
-
-
-
-
-
-
-
+       </div>
+       <div class="second-container">
+         <h2><span style={{color : "#0d6efd"}}>Contact</span> With Us</h2>
+         <form method="POST">
+         <div class="form-group">
+             <label for="email-input">Enter your Full Name</label>
+             <input id="email-input" type="text" placeholder="Eg. sushant rajendra shinde"    name='name' value={userData.name} onChange={handleInput} required=""/>
+           </div>
+           <div class="form-group">
+             <label for="email-input">Enter your email</label>
+             <input id="email-input" type="text" placeholder="Eg. example@gmail.com" name='email' value={userData.email} onChange={handleInput}  required=""/>
+           </div>
+           <div class="form-group">
+             <label for="phone-input">Enter phone number</label>
+             <input id="phone-input" type="text" placeholder="Eg. 8530164970"  name='phone' value={userData.phone} onChange={handleInput} required=""/>
+           </div>
+           <div class="form-group">
+             <label for="message-textarea">Message</label>
+             <input class="textarea" id="message-textarea" placeholder="Write us a message"/>
+           </div>
+           <a class="btn" onClick={contactForm}>Send message</a>
+         </form>
+       </div>
+     </div>
     </div>
   );
 }

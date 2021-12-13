@@ -3,14 +3,13 @@ import "../css/Home.css"
 import welcome from '../images/welcome.svg'
 
 export default function Home() {
-    
 
     const [userData, setUserData] = useState({
         _id: "ID",
-        name: " Developer :- Dfuseop.exe",
+        name: "Dfuseop.exe",
         email: "@gmail.com",
         phone: '7485xxxxxxx',
-        work: "Technology :- MERN Stack",
+        work: "Full stack Developer",
         password: "",
         cpassword: "",
         tokens: [
@@ -56,13 +55,28 @@ export default function Home() {
      }, [])
     
 
+
     return (
-        <div className='container container-contact'>
-            <div className="home-div">
-           <img style={{marginBottom : '20px'}} src={welcome} alt="" />
-            <h1 style={{fontFamily : "Nunito" , color  : "#0d6efd"}} >{userData.name}</h1>
-            <h3>{show ? 'Happy to see You' : "Technology :- Mern Stack"}</h3>
-        </div>
-        </div>
+        <section className='container home-wrapper'>
+            <div className="row ">
+                <div className="col-md-12 mx-auto home-img d-flex justify-content-center ">
+                    <img  src={welcome} alt="Home Image" />
+                </div>
+
+                <div className="col-12 home-content">
+                    <div className="container my-3">
+                        
+                       
+                       <div className="container mine-data">
+                        
+                        <h1 style={{color : "#0d6efd" }}>{userData.name}</h1>
+                        <h3>{show ? 'Happy to see You' : "Full stack Developer"}</h3>
+                       </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
     )
 }

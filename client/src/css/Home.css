@@ -1,16 +1,48 @@
-.home-div{
-    width: 800px;
-    height: 200px;
-    margin: 0px auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@600&display=swap');
+.container{
+    margin-bottom: 5rem;
+    font-family: "Montserrat" ;
 }
 
-.container-contact{
-height: 700px;
-display: flex;
-align-items: center;
+.home-wrapper{
+    margin-top: 5rem;
 }
+
+.home-img{
+    
+    height: 500px;
+    /* height: fit-content; */
+}
+
+.home-img img{
+    
+    width: 100%;
+    height: auto;
+}
+
+.home-content .container{
+    text-align: center;
+   
+}
+
+.container h1{
+    background-color : "black"
+}
+
+
+.mine-data h1{
+   font-weight: 800;
+   font-size: 1.5rem;
+}
+
+
+
+
+@media (max-width:767px){
+    .home-img{
+    
+        height: 300px;
+        /* height: fit-content; */
+    }
+}
+
