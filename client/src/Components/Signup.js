@@ -3,176 +3,155 @@ import signup from '../images/signup.svg'
 import '../css/Signup.css'
 import {  useNavigate } from 'react-router-dom';
 
-export default function Signup() {
 
+export default function Signup() {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState({
-    name : '',
-    email : '',
-    phone : '',
-    work : '',
-    password : '',
-    cpassword : '',
-  })
+ const [user, setUser] = useState({
+   name: "",
+   email: "",
+   phone: "",
+   work: "",
+   password: "",
+   cpassword: "",
+ });
 
-  let name , value ;
+ let name, value;
 
-  const handleInputs = (e)=>{
-    name = e.target.name;
-    value = e.target.value;
+ const handleInputs = (e) => {
+   name = e.target.name;
+   value = e.target.value;
 
-    setUser({...user , [name]:value} )
-  }
+   setUser({ ...user, [name]: value });
+ };
 
+ const PostData = async (e) => {
+   e.preventDefault();
+   const { name, email, phone, work, password, cpassword } = user;
 
-  const PostData = async (e)=>{
-    e.preventDefault();
-    const {name , email , phone , work , password , cpassword} =user;
+   const res = await fetch("/register", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify({
+       name,
+       email,
+       phone,
+       work,
+       password,
+       cpassword,
+     }),
+   });
 
-    const res = await fetch("/register" , {
-      method : "POST" ,
-      headers :{
-        "Content-Type" : "application/json"
-      },
-      body:JSON.stringify({
-        name , email , phone , work , password , cpassword
-      })
-    })
+   const data = await res.json();
+   if (res.status === 422 || res.status === 400 || !data) {
+     window.alert("Invalid Registration");
+     console.log("Invalid Registration");
+   } else {
+     window.alert("Registration SuccessFull");
+     console.log("Registration SuccessFull");
+     console.log(res.body);
+      navigate("/login");
+   }
+ };
 
-    
-    const data = await res.json();
-    if(res.status === 422 || res.status === 400 || !data){
-      window.alert("Invalid Registration");
-      console.log( "Invalid Registration")
-
-    }else{
-      window.alert("Registration SuccessFull");
-      console.log( "Registration SuccessFull");
-      console.log(res.body)
-      navigate('/login')
-    }
-  }
-
-  return (
-    <div style={{backgroundColor : "#fafafa" , marginTop : '80px'}}>
-        {/* card */}
-      <div className="signin-center-container shadow border-0">
-      
-      {/* flex container */}
-    <div className="signin-container-card ">
-      
-
-        {/* left card */}
-          <div className="item-left">
-
-           <div className='signup-head'>
-            <h1 style={{fontFamily : "Nunito" , color  : "#0d6efd"}}  >Create New Profile</h1> 
-           </div>
-
-           <form method='POST' className='signup-form'>
-             
-           <div className='inputWithIcon-signup'>
-              <input
-                placeholder='Your Name'
-       
-                className='todo-input'
-                value = {user.name}
-                onChange={handleInputs}
-                name = 'name'
-              />
-               <i className="fa-solid fa-user fa-lg" aria-hidden='true'></i>
-            </div>
-
-            <div className='inputWithIcon-signup'>
-              <input
-                placeholder='Your Email'
-     
-                className='todo-input'
-                value = {user.email}
-                onChange={handleInputs}
-                name = 'email'
-              />
-               <i className="fa-solid fa-envelope fa-lg" aria-hidden='true'></i>
-            </div>
-
-            <div className='inputWithIcon-signup'>
-              <input
-                placeholder='Mobile Number'
-                name='phone'
-                className='todo-input'
-                value = {user.phone}
-                onChange={handleInputs}
-              />
-               <i className="fa-solid fa-phone fa-lg" aria-hidden='true'></i>
-            </div>
-
-
-            <div className='inputWithIcon-signup'>
-              <input
-                placeholder='Your Profession'
-            
-                className='todo-input'
-                value = {user.work}
-                onChange={handleInputs}
-                name = 'work'
-              />
-               <i className="fa-solid fa-briefcase fa-lg" aria-hidden='true'></i>
-            </div>
-
-
-            <div className='inputWithIcon-signup'>
-              <input
-                placeholder='Password'
-                type='password'
-                className='todo-input'
-                value = {user.password}
-                onChange={handleInputs}
-                name = 'password'
-              />
-               <i className="fa-solid fa-lock fa-lg" aria-hidden='true'></i>
-            </div>
-
-            <div className='inputWithIcon-signup'>
-              <input
-                placeholder='Confirm Password'
-                type='password'
-                className='todo-input'
-                value = {user.cpassword}
-                onChange={handleInputs}
-                name = 'cpassword'
-              />
-               <i className="fa-solid fa-lock fa-lg" aria-hidden='true'></i>
-            </div>
-            <button type="button"  onClick={PostData} className="btn btn-outline-primary btn-signup">Sign up</button>
-            </form>  
-              
+ return (
+   <div className="container my-md-5 px-md-5">
+     <section className="container sign-main  my-md-5 px-md-5">
+       <div className="row my-md-2 signup-container ">
+         {/* Left Side Img*/}
+         <div className="col-sm-12 my-auto box-1 col-md-5 ">
+           <img src={signup} alt="SignUp Image" />
            
-          </div>
-     
+         </div>
 
-        {/* right card */}
-          <div className="item-right-signup">
-            
-          <div className='img-signup'>
-                <img src={signup} alt="signup" />
-            </div>
+         {/* Right Side Form */}
+         <div className="col-sm-12 box-2 col-md-7">
+           <div className="row sign-right">
+             <div className="col-12">
+               <h2>
+                 Create New{" "}
+                 <span style={{ color: "#0d6efd", fontWeight: "bolder" }}>
+                   Account
+                 </span>
+               </h2>
+             </div>
 
-            <div className='login-text'> 
-  
-            <button type="button" className="btn btn-outline-info" onClick={()=>{
-              navigate('/login')
-            }}>I am already register</button>
-              
-            </div>
-
-          </div>
-
-    {/* End Card Container  */}
-      </div>
-</div>
-
-    </div>
-      
-  );
+             {/* Form */}
+             <form method="POST">
+               <div class="form-row">
+                 <input
+                   type="text"
+                   required
+                   value={user.name}
+                   onChange={handleInputs}
+                   name="name"
+                 />
+                 <span>Your Name</span>
+               </div>
+               <div class="form-row">
+                 <input
+                   type="text"
+                   required
+                   value={user.email}
+                   onChange={handleInputs}
+                   name="email"
+                 />
+                 <span>Your Email</span>
+               </div>
+               <div class="form-row">
+                 <input
+                   type="text"
+                   required
+                   name="phone"
+                   value={user.phone}
+                   onChange={handleInputs}
+                 />
+                 <span>Mobile Number</span>
+               </div>
+               <div class="form-row">
+                 <input
+                   type="text"
+                   required
+                   value={user.work}
+                   onChange={handleInputs}
+                   name="work"
+                 />
+                 <span>Your Profession</span>
+               </div>
+               <div class="form-row">
+                 <input
+                   type="password"
+                   required
+                   value={user.password}
+                   onChange={handleInputs}
+                   name="password"
+                 />
+                 <span>Password</span>
+               </div>
+               <div class="form-row">
+                 <input
+                   type="password"
+                   required
+                   value={user.cpassword}
+                   onChange={handleInputs}
+                   name="cpassword"
+                 />
+                 <span>Confirm Password</span>
+               </div>
+               <div class="form-row"></div>
+               <div class="form-row">
+                 <button type="submit" onClick={PostData}>Sign Up</button>
+               </div>
+               <button type="button" className="btn btn-outline" style={{color : "#0d6efd"}} onClick={()=>{
+               navigate('/login')
+           }}>I am already register</button>
+             </form>
+           </div>
+         </div>
+       </div>
+     </section>
+   </div>
+ );
 }
