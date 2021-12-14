@@ -68,7 +68,7 @@ export default function Signup() {
           </div>
 
           {/* Right Side Form */}
-          <div className="col-sm-12 box-2 col-md-7">
+          <div className="col-sm-12 box-2 signupcard col-md-7">
             <div className="row sign-right">
               <div className="col-12">
                 <h2>

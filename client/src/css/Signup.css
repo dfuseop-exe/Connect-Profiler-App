@@ -10,6 +10,13 @@
   margin: 5rem;
 }
 
+.signupcard{
+  background: #1170fd1f;
+  -moz-box-shadow: 0 0 5px #ccc;
+-webkit-box-shadow: 0 0 5px #ccc;
+box-shadow: 0 0 5px #ccc;
+  padding: 2rem 2rem 1rem 2rem;
+}
 
 
 
@@ -111,12 +118,18 @@ form> .form-row > button:hover{
 
 @media (max-width:767px){
   .sign-main{ 
-      background:#fff;
+      background:white;
       padding:1rem ;
       margin: 3rem 0;
       /* padding:0.5rem 2em 0 2rem; */
   }
   
+  .signupcard{
+    background: #1170fd1f;
+    padding: 0.8rem;
+  }
+  
+
   .sign-main .signup-containe{
       margin: 5rem;
   }
