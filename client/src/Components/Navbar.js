@@ -1,5 +1,6 @@
 import React , {useContext} from "react";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.svg"
 
 import { UserContext } from '../App';
 import '../css/Navbar.css'
@@ -7,6 +8,11 @@ import '../css/Navbar.css'
 
 export default function Navbar() {
   const {state , dispatch} = useContext(UserContext);
+
+  const contact_handle = {
+
+  }
+
 
   const RenderMunu = ()=>{
     if(state){
@@ -23,7 +29,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">
+              <Link className="nav-link" to="/contact" onClick={contact_handle}>
                 <p>Contact</p>
               </Link>
             </li>
@@ -69,10 +75,10 @@ export default function Navbar() {
 
   return (
     <section className="header-wrapper">
-      <nav class="navbar navbar-expand-lg fixed-top navbar-light ">
+      <nav class="navbar shadow-lg  navbar-expand-lg fixed-top navbar-light ">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            Connect
+            Connect <img src={logo} alt="" />
           </a>
           <button
             class="navbar-toggler"
@@ -95,3 +101,4 @@ export default function Navbar() {
     </section>
   );
 }
+

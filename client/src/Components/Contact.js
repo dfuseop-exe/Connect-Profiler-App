@@ -1,6 +1,7 @@
 import React, { useEffect , useState} from "react";
 import "../css/Contact.css";
 import contact from "../images/contact.svg"
+import msg from "../images/message.png"
 
 export default function Contact() {
 
@@ -97,7 +98,7 @@ useEffect(() => {
         </div>
        </div>
        <div class="second-container">
-         <h2><span style={{color : "#0d6efd"}}>Contact</span> With Us</h2>
+         <h2><span style={{color : "#0d6efd"}}>Contact</span> With Us <img src={msg} alt="" /></h2>
          <form method="POST">
          <div class="form-group">
              <label for="email-input">Enter your Full Name</label>
@@ -113,9 +114,9 @@ useEffect(() => {
            </div>
            <div class="form-group">
              <label for="message-textarea">Message</label>
-             <input class="textarea" id="message-textarea" placeholder="Write us a message"/>
+             <input class="textarea" id="message-textarea" placeholder="Write us a message" name='message' value={userData.message} onChange={handleInput}/>
            </div>
-           <a class="btn" onClick={contactForm}>Send message</a>
+           <a class="btn"  onClick={contactForm}>Send message</a>
          </form>
        </div>
      </div>
