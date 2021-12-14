@@ -1,0 +1,44 @@
+.container{
+    margin-bottom: 5rem;
+}
+
+.home-wrapper{
+    margin-top: 5rem;
+}
+
+.home-img{
+    
+    height: 500px;
+    /* height: fit-content; */
+}
+
+.home-img img{
+    
+    width: 100%;
+    height: auto;
+}
+
+.home-content .container{
+    text-align: center;
+}
+
+.container h1{
+    background-color : "black"
+}
+
+
+.mine-data h1{
+   font-weight: 800;
+}
+
+
+
+
+@media (max-width:767px){
+    .home-img{
+    
+        height: 300px;
+        /* height: fit-content; */
+    }
+}
+
